@@ -1,29 +1,30 @@
 #!/bin/bash -x
 
-echo ENTER NUMBER OF TIMES YOU WANT TO FLIP A COIN::
-read n
+echo "UNTIL EITHER HEAD OR TAIL WINS 21 TIMES"
 
 #variables
 h=0
 t=0
 
-while [ $h -le $n ] && [ $t -le $n ]
+while [ $h -lt 21 ] && [ $t -lt 21 ]
 do
 		flip=$((RANDOM%2))
 
 	if [ $flip -eq 1 ]
 		then ((h++))
-		echo Heads
-				Heads=$(($h+1))
+		echo Heads=$(($h+1))
 		else ((t++))
-		echo Tails
-				Tails=$(($t+1))
+		echo Tails=$(($t+1))
 	fi
+
 done
 
-if [ $Heads -gt $Tails ]
+if [ $h -eq $t ]
 then
-echo HEAD WINS.
+	echo "ITS A TIE."
+elif [ $h -gt $t ]
+then
+	echo HEAD WON BY $h POINTS.
 else
-echo TAIL WINS.
+	echo TAIL WON BY $t POINTS.
 fi

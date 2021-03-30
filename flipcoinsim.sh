@@ -39,10 +39,10 @@ if [ $h -eq $t ]
 then rematch
 	echo "ITS A TIE."
 elif [ $h -gt $t ]
-then
-	echo HEAD WON BY $h POINTS.
-else
-	echo TAIL WON BY $t POINTS.
+then i=$(($h-$t))
+	echo HEAD WON BY $i POINTS.
+else j=$(($t-$h))
+	echo TAIL WON BY $j POINTS.
 fi
 
 
